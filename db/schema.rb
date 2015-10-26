@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 20151026101721) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "areas", force: true do |t|
-    t.string   "name",       limit: nil
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.boolean  "live",                   default: false
+    t.string   "name"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "live",       default: false
   end
 
   create_table "areas_audiences", force: true do |t|
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 20151026101721) do
   end
 
   create_table "audiences", force: true do |t|
-    t.string   "title",      limit: nil
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "care_home_metrics", force: true do |t|
@@ -67,19 +67,19 @@ ActiveRecord::Schema.define(version: 20151026101721) do
   add_index "care_home_metrics", ["care_home_id"], name: "index_care_home_metrics_on_care_home_id", using: :btree
 
   create_table "care_homes", force: true do |t|
-    t.integer  "area_id",                                                null: false
-    t.string   "cqc_location_uid",           limit: nil,                 null: false
-    t.text     "name",                                                   null: false
-    t.string   "town",                       limit: nil,                 null: false
-    t.string   "postcode",                   limit: nil,                 null: false
-    t.boolean  "nursing_care",                           default: false, null: false
-    t.boolean  "residential",                            default: false, null: false
-    t.boolean  "all_care",                               default: false, null: false
-    t.boolean  "dementia_care",                          default: false, null: false
-    t.boolean  "learning_disabilities_care",             default: false, null: false
-    t.boolean  "mental_health_care",                     default: false, null: false
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
+    t.integer  "area_id",                                    null: false
+    t.string   "cqc_location_uid",                           null: false
+    t.text     "name",                                       null: false
+    t.string   "town",                                       null: false
+    t.string   "postcode",                                   null: false
+    t.boolean  "nursing_care",               default: false, null: false
+    t.boolean  "residential",                default: false, null: false
+    t.boolean  "all_care",                   default: false, null: false
+    t.boolean  "dementia_care",              default: false, null: false
+    t.boolean  "learning_disabilities_care", default: false, null: false
+    t.boolean  "mental_health_care",         default: false, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "care_homes", ["area_id"], name: "index_care_homes_on_area_id", using: :btree
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 20151026101721) do
   add_index "contributors", ["reset_password_token"], name: "index_contributors_on_reset_password_token", unique: true, using: :btree
 
   create_table "fund_verticals", force: true do |t|
-    t.string   "title",         limit: nil
+    t.string   "title"
     t.integer  "council_spend"
     t.integer  "nhs_spend"
     t.integer  "trend"
@@ -173,16 +173,16 @@ ActiveRecord::Schema.define(version: 20151026101721) do
   end
 
   create_table "notices", force: true do |t|
-    t.string   "title",      limit: nil
-    t.string   "link",       limit: nil
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title"
+    t.string   "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "population_metrics", force: true do |t|
     t.date     "date"
     t.integer  "count"
-    t.string   "title",       limit: nil
+    t.string   "title"
     t.integer  "area_id"
     t.integer  "audience_id"
     t.datetime "created_at"
@@ -191,12 +191,12 @@ ActiveRecord::Schema.define(version: 20151026101721) do
 
   create_table "populations", force: true do |t|
     t.date     "date"
-    t.string   "gender",      limit: nil, null: false
+    t.string   "gender",      null: false
     t.integer  "count"
     t.integer  "audience_id"
     t.integer  "area_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "professions", force: true do |t|

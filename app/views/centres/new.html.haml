@@ -1,69 +1,74 @@
-%h1 Set up a centre
+%section.intro
+  %h1 Set up a centre
 
-= form_for :centre, url: centres_path do |f|
+%section
+  .inner
+    = form_for :centre, url: centres_path do |f|
 
-  %fieldset
-    = f.label :name
-    = f.text_field :name
+      %fieldset
+        = f.label :name
+        = f.text_field :name
 
-  %fieldset
-    = f.label :location
-    = f.text_field :location
+      %fieldset
+        = f.label :location
+        = f.text_field :location
 
-  %fieldset
-    = f.label :description
-    = f.text_area :description
+      %fieldset
+        = f.label :description
+        = f.text_area :description
 
-  %fieldset
-    %label
-      = f.radio_button :status, 'active'
-      Active centre
-    %label
-      = f.radio_button :status, 'inactive'
-      Inactive centre
+      %fieldset
+        %label
+          = f.radio_button :status, 'active'
+          Active centre
+        %label
+          = f.radio_button :status, 'inactive'
+          Inactive centre
+        %br
+        %br
 
-  %fieldset
-    = f.label :key_contacts
-    = f.text_area :key_contacts
-
-
-  %fieldset
-    = f.label :assistant_contacts
-    = f.text_area :assistant_contacts
-
-  %fieldset
-    = f.label :medical
-    = f.text_area :medical
-    %br
-    = f.label :medical_level
-    = f.text_field :medical_level
-
-  %fieldset
-    = f.label :equiptment
-    = f.text_area :equiptment
-    %br
-    = f.label :equiptment_level
-    = f.text_field :equiptment_level
+      %fieldset
+        = f.label :key_contacts
+        = f.text_area :key_contacts
 
 
-  %fieldset
-    = f.label :people
-    = f.text_area :people
-    %br
-    = f.label :people_level
-    = f.text_field :people_level
+      %fieldset
+        = f.label :assistant_contacts
+        = f.text_area :assistant_contacts
 
-  %fieldset
-    = f.label :food
-    = f.text_area :food
-    %br
-    = f.label :food_level
-    = f.text_field :food_level
+      %fieldset
+        = f.label :medical
+        = f.text_area :medical
+        %br
+        = f.label :medical_level
+        = f.text_field :medical_level
 
-  %fieldset
-    = f.label :other
-    = f.text_area :other
+      %fieldset
+        = f.label :equiptment, 'Equipment'
+        = f.text_area :equiptment
+        %br
+        = f.label :equiptment_level
+        = f.text_field :equiptment_level
 
-  %br
 
-  = f.submit
+      %fieldset
+        = f.label :people
+        = f.text_area :people
+        %br
+        = f.label :people_level
+        = f.text_field :people_level
+
+      %fieldset
+        = f.label :food
+        = f.text_area :food
+        %br
+        = f.label :food_level
+        = f.text_field :food_level
+
+      %fieldset
+        = f.label :other
+        = f.text_area :other
+
+      %br
+
+      = f.submit

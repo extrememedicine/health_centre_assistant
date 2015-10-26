@@ -1,1 +1,32 @@
-%h1 Emergency medical centres
+%section.intro
+  %h1 How can you help support emergency treatment centres?
+
+%section.links
+
+  %p Pairing volunteer assistants from around the world with emergency treatment centres, for up to date, open reporting on supplies and resources.
+  %br
+  %p Use this site to browse a centre's needs, get support for your treatment centre or volunteer to help.
+
+
+%section#centres
+  -@centres.each do |centre|
+    =link_to(centre_path(centre), :class => 'centre') do
+      .image
+      %h3
+        =centre.name
+        -unless centre.location.blank?
+          \- #{centre.location}
+
+%section
+  #find
+    %h2 Get help
+    %p To connect with an assistant simply text your name and a brief overview of your situation to:
+    %h3 +44 7481 3394 57
+
+  #help
+    %h2 Volunteer to become an assistant
+    %p Help promote the needs of emergency health and treatment centres by relaying information between text and this site.
+    %br
+    = link_to "Become an assistant", messages_path
+
+

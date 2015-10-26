@@ -9,8 +9,11 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 
 gem 'haml-rails'
+gem 'bourbon'
 
 gem 'neat'
+
+gem 'twilio-ruby'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

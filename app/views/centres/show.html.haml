@@ -1,0 +1,93 @@
+#show
+  %section.intro
+    %h1
+      #{@centre.name}
+      -unless @centre.location.blank?
+        \- #{@centre.location}
+
+    %p=@centre.description
+    %br
+    %p
+      %strong Status:
+      =@centre.status.capitalize
+
+
+
+  %section.contact-info
+    %p
+      %strong Centre contact:
+      =@centre.key_contacts
+    %p
+      %strong Assistant contact:
+      =@centre.assistant_contacts
+
+  .left-align
+    -unless @centre.medical.blank?
+      %section
+        .inner
+          %h2 Medical supplies
+          %i f
+          %p=@centre.medical
+          .level
+            %br
+            %br
+            %p.urgency
+              %strong Urgency:
+              #{@centre.medical_level} out of 10
+          .clear
+
+    -unless @centre.equiptment.blank?
+      %section
+        .inner
+          %h2 Equipment
+          %i d
+          %p=@centre.equiptment
+          .level
+            %br
+            %br
+            %p.urgency
+              %strong Urgency:
+              #{@centre.equiptment_level} out of 10
+          .clear
+
+    -unless @centre.people.blank?
+      %section
+        .inner
+          %h2 People
+          %i a
+          %p
+            =@centre.people
+            %br
+            %br
+            %a{:href => 'http://www.vsointernational.org/fighting-poverty/where-we-work/sierra-leone', :target => 'blank'}
+              Learn about becoming a volunteer
+          .level
+            %br
+            %br
+            %p.urgency
+              %strong Urgency:
+              #{@centre.people_level} out of 10
+          .clear
+
+    -unless @centre.food.blank?
+      %section
+        .inner
+          %h2 Food and supplies
+          %i e
+          %p=@centre.food
+          .level
+            %br
+            %br
+            %p.urgency
+              %strong Urgency:
+              #{@centre.food_level} out of 10
+          .clear
+
+    -unless @centre.other.blank?
+      %section
+        .inner
+          %h2 Other information
+          %i d
+          %p=@centre.other
+
+
