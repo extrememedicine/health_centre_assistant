@@ -1,0 +1,127 @@
+$small-plus: new-breakpoint(min-width 480px 8)
+$small: new-breakpoint(max-width 480px 8)
+$medium: new-breakpoint(max-width 768px 8)
+$large: new-breakpoint(max-width 992px 8)
+$large-plus: new-breakpoint(min-width 992px 8)
+
+$base-font-size: 15.5px
+$small-font-size: .9em
+$regular-font-size: 1em
+$medium-font-size: 1.2em
+$large-font-size: 1.6em
+$larger-font-size: 2.5em
+$display-font-size: 3em
+$mobile-regular-font-size: 1em
+
+$display-font: ginger, serif
+$body-font: latoregular, arial, sans-serif
+
+$max-width: em(1200)
+$body-padding: 1em
+
+@mixin max-widths
+  +outer-container
+  max-width: $max-width
+  margin: auto
+  padding: $body-padding
+  +media($small)
+    padding: 0
+
+@mixin clearfix
+  &:before
+    content: "\0020"
+    display: block
+    height: 0
+    overflow: hidden
+  &:after
+    content: "\0020"
+    display: block
+    height: 0
+    overflow: hidden
+    clear: both
+  zoom: 1
+
+@mixin vertical-align
+  position: relative
+  top: 50%
+  -webkit-transform: translateY(-50%)
+  -ms-transform: translateY(-50%)
+  transform: translateY(-50%)
+
+// Prefix experimental props w/ browser prefixes
+@mixin prefixer ($property, $value, $prefixes)
+  @each $prefix in $prefixes
+    @if $prefix == webkit
+      -webkit-#{$property}: $value
+
+    @else if $prefix == moz
+      -moz-#{$property}: $value
+
+    @else if $prefix == ms
+      -ms-#{$property}: $value
+
+    @else if $prefix == o
+      -o-#{$property}: $value
+
+    @else if $prefix == spec
+      #{$property}: $value
+
+    @else
+      @warn "Unrecognized prefix: #{$prefix}"
+
+=cover()
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+
+=rounded($radius: 3px)
+  :border-radius  $radius
+  :-moz-border-radius $radius
+  :-webkit-border-radius $radius
+
+=borderRadiusDiff($tl, $tr, $br, $bl)
+  :border-radius  $tl $tr $br $bl
+  :-moz-border-radius $tl $tr $br $bl
+  :-webkit-border-radius $tl $tr $br $bl
+
+=borderRadiusStroke($color)
+  -moz-box-shadow:  1px 1px 0px 0px $color,  -1px -1px 0px 0px $color,  -1px 1px 0px 0px $color,  1px -1px 0px 0px $color
+  -webkit-box-shadow:  1px 1px 0px 0px $color,  -1px -1px 0px 0px $color,  -1px 1px 0px 0px $color,  1px -1px 0px 0px $color
+  box-shadow:  1px 1px 0px 0px $color,  -1px -1px 0px 0px $color,  -1px 1px 0px 0px $color,  1px -1px 0px 0px $color
+
+=box-shadow($l, $t, $b, $c)
+  :-webkit-box-shadow $l $t $b $c
+  :-moz-box-shadow  $l $t $b $c
+  :box-shadow $l $t $b $c
+
+@mixin vertical-align
+  position: relative
+  top: 50%
+  -webkit-transform: translateY(-50%)
+  -ms-transform: translateY(-50%)
+  -moz-transform: translateY(-50%)
+  transform: translateY(-50%)
+
+@mixin triangle($dir, $size, $color)
+  border: $size transparent solid
+
+  @if ($dir == "top" or $dir == "up")
+    border-bottom-color: $color
+  @else if ($dir == "right" or $dir == "after")
+    border-left-color: $color
+  @else if ($dir == "bottom" or $dir == "down")
+    border-top-color: $color
+  @else if ($dir == "left" or $dir == "before")
+    border-right-color: $color
+
+
+@mixin people_illustration_svg_png($file)
+  background: transparent url(people/#{$file}.png) center center no-repeat
+  background-image: -webkit-linear-gradient(transparent, transparent), url(people/#{$file}.svg)
+  background-image: linear-gradient(transparent, transparent), url(people/#{$file}.svg)
+
+
+
+
+
